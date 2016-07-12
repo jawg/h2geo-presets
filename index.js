@@ -5,7 +5,7 @@ const yaml = require('js-yaml');
 const rmdir = require('rmdir-recursive').sync;
 
 // Constants
-const outputDir = 'output/';
+const outputDir = 'out/';
 const baseDir = 'presets/';
 
 /**
