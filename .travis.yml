@@ -1,5 +1,5 @@
 language: node_js
-script: bash ./deploy.sh
+script: bash ./deploy.sh $TRAVIS_BUILD_NUMBER
 env:
   global:
   - COMMIT_AUTHOR_EMAIL: contact@loicortola.com

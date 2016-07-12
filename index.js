@@ -91,15 +91,18 @@ var exec = function() {
   }
 
   var dir = fs.readdirSync(baseDir);
-  var presets = {};
-
-
+  var output = {
+    revision: process.argv[2],
+    lastUpdate: new Date().toISOString(),
+    presets: {}
+  };
+  
   /**
    * Parse directory
    */
-  dir.forEach(getFileProcessor(presets));
+  dir.forEach(getFileProcessor(output.presets));
 
-  fs.writeFileSync(outputDir + 'presets.json', JSON.stringify(presets));
+  fs.writeFileSync(outputDir + 'presets.json', JSON.stringify(output));
 
 };
 

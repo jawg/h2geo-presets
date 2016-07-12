@@ -27,7 +27,7 @@ cd ..
 rm -rf out/** || exit 0
 
 # Build
-./build.sh
+./build.sh $1
 
 # Now let's go have some fun with the cloned repo
 cd out
