@@ -39,6 +39,8 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
+mv ../deploy_key .
+
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 chmod 600 deploy_key
 eval `ssh-agent -s`
