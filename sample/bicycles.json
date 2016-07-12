@@ -1,0 +1,119 @@
+{
+  "name": {
+    "en": "Bicycles preset",
+    "fr": "Preset Vélos"
+  },
+  "description": {
+    "en": "The only profile you need to contribute your favourite bicycle amenities.",
+    "fr": "Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos."
+  },
+  "data": [
+    {
+      "name": "amenity\u003dbicycle_parking",
+      "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_parking",
+      "label": {
+        "en": "Bicycle Stand",
+        "fr": "Parking vélo"
+      },
+      "description": {
+        "en": "A place for parking bicycles.",
+        "fr": "Emplacement pour garer son vélo."
+      },
+      "keywords": {
+        "en": [
+          "bike rack",
+          "bicycle parking rack",
+          "bicycle rack"
+        ],
+        "fr": [
+          "Arceaux à vélo",
+          "Support à vélos",
+          "vélo"
+        ]
+      },
+      "tags": [
+        {
+          "key": "name",
+          "type": "TEXT"
+        },
+        {
+          "key": "amenity",
+          "value": "bicycle_parking",
+          "type": "CONSTANT"
+        },
+        {
+          "key": "access",
+          "type": "SINGLE_CHOICE",
+          "values": ["yes", "no"]
+        },
+        {
+          "key": "bicycle_parking",
+          "type": "SINGLE_CHOICE",
+          "values": ["stands", "wall_loops", "rack"]
+        },
+        {
+          "key": "capacity",
+          "type": "NUMBER"
+        },
+        {
+          "key": "operator",
+          "type": "SINGLE_CHOICE",
+          "values": ["JCDecaux", "ClearChannel", "Smoove"]
+          
+        }
+      ]
+    },
+    {
+      "name": "amenity\u003dbicycle_rental",
+      "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_rental",
+      "label": {
+        "fr": "Station de Location/Partage de vélo",
+        "en": "Bicycle Rental/Sharing station"
+      },
+      "description": {
+        "en": "A place where you can pick up and drop off rented bikes.",
+        "fr": "Un endroit où l\u0027on peut emprunter ou rendre un vélo en location."
+      },
+      "keywords": {
+        "fr": [
+          "Vélos partagés",
+          "Vélopartage",
+          "Vélos gratuits en ville",
+          "Vélos en libre service",
+          "Libre-service vélo",
+          "Vélib"
+        ],
+        "en": [
+          "bike",
+          "bicycle",
+          "City bike",
+          "citybike"
+        ]
+      },
+      "tags": [
+        {
+          "key": "amenity",
+          "value": "bicycle_rental",
+          "type": "CONSTANT"
+        },
+        {
+          "key": "capacity",
+          "type": "NUMBER"
+        },
+        {
+          "key": "name",
+          "type": "TEXT"
+        },
+        {
+          "key": "operator",
+          "type": "TEXT",
+          "values": ["JCDecaux", "ClearChannel", "Smoove"]
+        },
+        {
+          "key": "ref",
+          "type": "TEXT"
+        }
+      ]
+    }
+  ]
+}

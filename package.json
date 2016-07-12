@@ -1,0 +1,33 @@
+{
+  "name": "h2geo-presets",
+  "version": "0.1.0",
+  "description": "A list of community presets to detail specific data types for mapping parties",
+  "main": "index.js",
+  "dependencies": {
+    "js-yaml": "^3.6.1",
+    "rmdir-recursive": "0.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jawg/h2geo-presets.git"
+  },
+  "keywords": [
+    "openstreetmap",
+    "h2geo",
+    "preset",
+    "presets",
+    "data",
+    "types",
+    "taginfo",
+    "mapping"
+  ],
+  "author": "Loic Ortola",
+  "license": "BSD-3",
+  "bugs": {
+    "url": "https://github.com/jawg/h2geo-presets/issues"
+  },
+  "homepage": "https://github.com/jawg/h2geo-presets#readme"
+}
