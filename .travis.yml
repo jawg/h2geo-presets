@@ -1,0 +1,8 @@
+language: node_js
+script: bash ./deploy.sh
+env:
+  global:
+  - COMMIT_AUTHOR_EMAIL: contact@loicortola.com
+before_install:
+- openssl aes-256-cbc -K $encrypted_20aefe02d3a5_key -iv $encrypted_20aefe02d3a5_iv
+  -in deploy_key.enc -out deploy_key -d
