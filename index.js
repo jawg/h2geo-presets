@@ -86,8 +86,9 @@ var getFileProcessor = function(presets) {
 
 var exec = function() {
   // Create output directory
-  rmdir(outputDir);
-  fs.mkdirSync(outputDir);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);  
+  }
 
   var dir = fs.readdirSync(baseDir);
   var presets = {};
