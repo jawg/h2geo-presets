@@ -7,6 +7,11 @@
     "en": "The only profile you need to contribute your favourite bicycle amenities.",
     "fr": "Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos."
   },
+  "offlineArea": [
+    [2.318866,48.854833,2.349637,48.866211],
+    [2.225740,48.884614,2.256510,48.895985],
+    [2.305884,48.832803,2.336655,48.844186]
+  ],
   "data": [
     {
       "name": "amenity\u003dbicycle_parking",
@@ -44,12 +49,19 @@
         {
           "key": "access",
           "type": "SINGLE_CHOICE",
-          "values": ["yes", "no"]
+          "values": [
+            "yes",
+            "no"
+          ]
         },
         {
           "key": "bicycle_parking",
           "type": "SINGLE_CHOICE",
-          "values": ["stands", "wall_loops", "rack"]
+          "values": [
+            "stands",
+            "wall_loops",
+            "rack"
+          ]
         },
         {
           "key": "capacity",
@@ -58,8 +70,11 @@
         {
           "key": "operator",
           "type": "SINGLE_CHOICE",
-          "values": ["JCDecaux", "ClearChannel", "Smoove"]
-          
+          "values": [
+            "JCDecaux",
+            "ClearChannel",
+            "Smoove"
+          ]
         }
       ]
     },
@@ -107,7 +122,11 @@
         {
           "key": "operator",
           "type": "TEXT",
-          "values": ["JCDecaux", "ClearChannel", "Smoove"]
+          "values": [
+            "JCDecaux",
+            "ClearChannel",
+            "Smoove"
+          ]
         },
         {
           "key": "ref",

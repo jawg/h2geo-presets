@@ -4,6 +4,10 @@ name:
 description:
   en: The only profile you need to contribute your favourite bicycle amenities.
   fr: Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos.
+offlineArea:
+  - [2.318866,48.854833,2.349637,48.866211]
+  - [2.225740,48.884614,2.256510,48.895985]
+  - [2.305884,48.832803,2.336655,48.844186]
 data:
   - name: amenity=bicycle_parking
     url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=bicycle_parking'
