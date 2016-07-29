@@ -14,6 +14,9 @@ Contributing to OpenStreetMap is not trivial for beginners. Sometimes, you just 
   
   Need help? take a look at the samples!
   
+  Now supporting offlineAreas (optional) with an array of bounding boxes.
+  Use [bboxfinder](http://bboxfinder.com) to find your relevant bboxes.
+  
 ## Contributors
   This app is actively developed by:  
   [loicortola](https://github.com/loicortola)
