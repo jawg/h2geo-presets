@@ -7,6 +7,7 @@
     "en": "The only profile you need to contribute your favourite bicycle amenities.",
     "fr": "Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos."
   },
+  "image": "http://static.directmatin.fr/sites/default/files/velib_frein_arriere.jpg",
   "offlineArea": [
     [2.318866,48.854833,2.349637,48.866211],
     [2.225740,48.884614,2.256510,48.895985],
