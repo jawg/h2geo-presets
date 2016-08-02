@@ -8,6 +8,7 @@ offlineArea:
   - [2.318866,48.854833,2.349637,48.866211] # tuileries / louvre
   - [2.225740,48.884614,2.256510,48.895985] # la defense
   - [2.305884,48.832803,2.336655,48.844186] # montparnasse
+image: 'http://static.directmatin.fr/sites/default/files/velib_frein_arriere.jpg'
 data:
   - name: amenity=bicycle_parking
     url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=bicycle_parking'
