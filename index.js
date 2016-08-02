@@ -44,7 +44,7 @@ var processJson = function (f) {
   fs.writeFileSync(baseDir + filenameYml, yaml.safeDump(parsed));
   // Remove Old JSON File
   fs.unlinkSync(baseDir + filename);
-  return {"name": parsed.name, "description": parsed.description, "image": parsed.image, file": filename};
+  return {"name": parsed.name, "description": parsed.description, "image": parsed.image, "file": filename};
 };
 
 /**
