@@ -11,7 +11,7 @@ const baseDir = 'presets/';
 /**
  * Process yaml file and translate into JSON. Output in output/ directory.
  * @param f the input yaml file
- * @return {"name": {"en": "The Preset Name"}, "description": {"en": "Your preset description"}, "file": "preset_file.json"}
+ * @return {"name": {"en": "The Preset Name"}, "description": {"en": "Your preset description"}, "file": "preset_file.json", "image": "image_url"}
  */
 var processYaml = function (f) {
   // Convert Yaml to JSON
@@ -21,7 +21,7 @@ var processYaml = function (f) {
   }
   var filename = path.basename(f, path.extname(f)) + '.json';
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
-  return {"name": parsed.name, "description": parsed.description, "file": filename};
+  return {"name": parsed.name, "description": parsed.description, "image": parsed.image, "file": filename};
 };
 
 /**
@@ -44,7 +44,7 @@ var processJson = function (f) {
   fs.writeFileSync(baseDir + filenameYml, yaml.safeDump(parsed));
   // Remove Old JSON File
   fs.unlinkSync(baseDir + filename);
-  return {"name": parsed.name, "description": parsed.description, "file": filename};
+  return {"name": parsed.name, "description": parsed.description, "image": parsed.image, file": filename};
 };
 
 /**
