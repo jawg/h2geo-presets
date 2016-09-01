@@ -1,9 +1,11 @@
 {
   "name": {
+    "default": "Bicycles preset",
     "en": "Bicycles preset",
     "fr": "Preset Vélos"
   },
   "description": {
+    "default": "The only profile you need to contribute your favourite bicycle amenities.",
     "en": "The only profile you need to contribute your favourite bicycle amenities.",
     "fr": "Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos."
   },
@@ -13,125 +15,176 @@
     [2.225740,48.884614,2.256510,48.895985],
     [2.305884,48.832803,2.336655,48.844186]
   ],
-  "data": [
+  "groups": [
     {
-      "name": "amenity\u003dbicycle_parking",
-      "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_parking",
-      "label": {
-        "en": "Bicycle Stand",
-        "fr": "Parking vélo"
+      "name": {
+        "default": "Bicycles group",
+        "en": "Bicycles group",
+        "fr": "Groupe Vélos"
       },
-      "description": {
-        "en": "A place for parking bicycles.",
-        "fr": "Emplacement pour garer son vélo."
-      },
-      "keywords": {
-        "en": [
-          "bike rack",
-          "bicycle parking rack",
-          "bicycle rack"
-        ],
-        "fr": [
-          "Arceaux à vélo",
-          "Support à vélos",
-          "vélo"
-        ]
-      },
-      "tags": [
+      "icon": "http://static.directmatin.fr/sites/default/files/velib_frein_arriere.jpg",
+      "url": "https://wiki.openstreetmap.org/wiki/Bicycle",
+      "items": [
         {
-          "key": "name",
-          "type": "TEXT"
-        },
-        {
-          "key": "amenity",
-          "value": "bicycle_parking",
-          "type": "CONSTANT"
-        },
-        {
-          "key": "access",
-          "type": "SINGLE_CHOICE",
-          "values": [
-            "yes",
-            "no"
+          "name": "amenity\u003dbicycle_parking",
+          "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_parking",
+          "label": {
+            "default": "Bicycle Stand",
+            "en": "Bicycle Stand",
+            "fr": "Parking vélo"
+          },
+          "description": {
+            "default": "A place for parking bicycles.",
+            "en": "A place for parking bicycles.",
+            "fr": "Emplacement pour garer son vélo."
+          },
+          "keywords": {
+            "default": [
+              "bike rack",
+              "bicycle parking rack",
+              "bicycle rack"
+            ],
+            "en": [
+              "bike rack",
+              "bicycle parking rack",
+              "bicycle rack"
+            ],
+            "fr": [
+              "Arceaux à vélo",
+              "Support à vélos",
+              "vélo"
+            ]
+          },
+          "tags": [
+            {
+              "key": "name",
+              "type": "TEXT"
+            },
+            {
+              "key": "amenity",
+              "value": "bicycle_parking",
+              "type": "CONSTANT"
+            },
+            {
+              "key": "access",
+              "type": "SINGLE_CHOICE",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "description": {
+                "default": "Access to the bicycle stand",
+                "en": "Access to the bicycle stand",
+                "fr": "Accès au parking à vélo"
+              }
+            },
+            {
+              "key": "bicycle_parking",
+              "type": "SINGLE_CHOICE",
+              "values": [
+                "stands",
+                "wall_loops",
+                "rack"
+              ],
+              "required": false
+            },
+            {
+              "key": "capacity",
+              "type": "NUMBER",
+              "validation": "[0-9]"
+            },
+            {
+              "key": "operator",
+              "type": "SINGLE_CHOICE",
+              "values": [
+                "JCDecaux",
+                "ClearChannel",
+                "Smoove"
+              ],
+              "show": false
+            }
+          ],
+          "constraints": [
+            {
+              "source": {
+                "type": "TAG",
+                "key": "access"
+              },
+              "condition": {
+                "type": "EQUALS",
+                "value": "no"
+              },
+              "action": {
+                "type": "SET_TAG_VALUE",
+                "key": "capicity",
+                "value": 0
+              }
+            }
           ]
         },
         {
-          "key": "bicycle_parking",
-          "type": "SINGLE_CHOICE",
-          "values": [
-            "stands",
-            "wall_loops",
-            "rack"
+          "name": "amenity\u003dbicycle_rental",
+          "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_rental",
+          "label": {
+            "default": "Bicycle Rental/Sharing station",
+            "fr": "Station de Location/Partage de vélo",
+            "en": "Bicycle Rental/Sharing station"
+          },
+          "description": {
+            "default": "A place where you can pick up and drop off rented bikes.",
+            "en": "A place where you can pick up and drop off rented bikes.",
+            "fr": "Un endroit où l\u0027on peut emprunter ou rendre un vélo en location."
+          },
+          "keywords": {
+            "default": [
+              "bike",
+              "bicycle",
+              "City bike",
+              "citybike"
+            ],
+            "fr": [
+              "Vélos partagés",
+              "Vélopartage",
+              "Vélos gratuits en ville",
+              "Vélos en libre service",
+              "Libre-service vélo",
+              "Vélib"
+            ],
+            "en": [
+              "bike",
+              "bicycle",
+              "City bike",
+              "citybike"
+            ]
+          },
+          "tags": [
+            {
+              "key": "amenity",
+              "value": "bicycle_rental",
+              "type": "CONSTANT"
+            },
+            {
+              "key": "capacity",
+              "type": "NUMBER"
+            },
+            {
+              "key": "name",
+              "type": "TEXT"
+            },
+            {
+              "key": "operator",
+              "type": "TEXT",
+              "values": [
+                "JCDecaux",
+                "ClearChannel",
+                "Smoove"
+              ]
+            },
+            {
+              "key": "ref",
+              "type": "TEXT"
+            }
           ]
-        },
-        {
-          "key": "capacity",
-          "type": "NUMBER"
-        },
-        {
-          "key": "operator",
-          "type": "SINGLE_CHOICE",
-          "values": [
-            "JCDecaux",
-            "ClearChannel",
-            "Smoove"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "amenity\u003dbicycle_rental",
-      "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity\u003dbicycle_rental",
-      "label": {
-        "fr": "Station de Location/Partage de vélo",
-        "en": "Bicycle Rental/Sharing station"
-      },
-      "description": {
-        "en": "A place where you can pick up and drop off rented bikes.",
-        "fr": "Un endroit où l\u0027on peut emprunter ou rendre un vélo en location."
-      },
-      "keywords": {
-        "fr": [
-          "Vélos partagés",
-          "Vélopartage",
-          "Vélos gratuits en ville",
-          "Vélos en libre service",
-          "Libre-service vélo",
-          "Vélib"
-        ],
-        "en": [
-          "bike",
-          "bicycle",
-          "City bike",
-          "citybike"
-        ]
-      },
-      "tags": [
-        {
-          "key": "amenity",
-          "value": "bicycle_rental",
-          "type": "CONSTANT"
-        },
-        {
-          "key": "capacity",
-          "type": "NUMBER"
-        },
-        {
-          "key": "name",
-          "type": "TEXT"
-        },
-        {
-          "key": "operator",
-          "type": "TEXT",
-          "values": [
-            "JCDecaux",
-            "ClearChannel",
-            "Smoove"
-          ]
-        },
-        {
-          "key": "ref",
-          "type": "TEXT"
         }
       ]
     }
