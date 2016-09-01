@@ -1,6 +1,6 @@
 {
   "name": "h2geo-presets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A list of community presets to detail specific data types for mapping parties",
   "main": "index.js",
   "dependencies": {
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jawg/h2geo-presets#readme",
   "devDependencies": {
+    "jsonschema": "^1.1.0",
     "xml2js": "^0.4.17"
   }
 }

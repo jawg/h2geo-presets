@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const rmdir = require('rmdir-recursive').sync;
+var validator = require('./lib/schema');
 
 // Constants
 const outputDir = 'out/';
@@ -16,12 +17,16 @@ const baseDir = 'presets/';
 var processYaml = function (f) {
   // Convert Yaml to JSON
   var parsed = yaml.safeLoad(fs.readFileSync(baseDir + f));
-  if (!parsed.name || !parsed.description) {
-    throw "Invalid Yaml Structure for file " + f;
+  var validation = validator.validate(parsed);
+  if (!validation.valid) {
+    console.error("File " + f + " is invalid. Will be ignored in parsing.");
+    console.error(validation.errors);
+  } else {
+    console.log("File " + f + " is valid. Will be parsed as preset.");
   }
   var filename = path.basename(f, path.extname(f)) + '.json';
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
-  return {"name": parsed.name, "description": parsed.description, "image": parsed.image, "file": filename};
+  return {"name": parsed.name, "description": parsed.description, "version": parsed.version, "image": parsed.image, "file": filename};
 };
 
 /**
@@ -31,8 +36,12 @@ var processYaml = function (f) {
  */
 var processJson = function (f) {
   var parsed = JSON.parse(fs.readFileSync(baseDir + f));
-  if (!parsed.name) {
-    throw "Invalid JSON Structure for file " + f;
+  var validation = validator.validate(parsed);
+  if (!validation.valid) {
+    console.error("File " + f + " is invalid. Will be ignored in parsing.");
+    console.error(validation.errors);
+  } else {
+    console.log("File " + f + " is valid. Will be parsed as preset.");
   }
   var filename = path.basename(f);
   var filenameYml = path.basename(f, path.extname(f)) + '.yml';
@@ -75,6 +84,7 @@ var getFileProcessor = function(presets) {
           break;
         case '.json':
           p = processJson(f);
+          validator.validate(p);
           presets[p.file] = p;
           break;
       }

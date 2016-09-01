@@ -2,6 +2,9 @@ name:
   default: Bicycles preset
   en: Bicycles preset
   fr: Preset Vélos
+version: '0.1'
+author: Loic Ortola
+link: https://github.com/jawg/h2geo-presets
 description:
   default: The only profile you need to contribute your favourite bicycle amenities.
   en: The only profile you need to contribute your favourite bicycle amenities.
@@ -68,7 +71,7 @@ groups:
             type: NUMBER
             validation:
               minValue: 0
-              maxValue:
+              maxValue: 25
           - key: operator
             type: SINGLE_CHOICE
             values:
