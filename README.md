@@ -1,6 +1,10 @@
 # h2geo-presets
 A list of community presets to detail specific data types for mapping parties
 
+# Documentation
+You can find the full spec and documentation here:  
+**[H2Geo Presets Spec 0.1](https://github.com/jawg/h2geo-presets/blob/master/specs/0.1.md)**
+
 ## What it is
 Contributing to OpenStreetMap is not trivial for beginners. Sometimes, you just don't want to worry about tags, and would rather focus on what matters: data itself.
 
