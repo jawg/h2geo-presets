@@ -1,6 +1,8 @@
 # h2geo-presets
 A list of community presets to detail specific data types for mapping parties
 
+<img src="https://travis-ci.org/jawg/h2geo-presets.svg"/>
+
 # Documentation
 You can find the full spec and documentation here:  
 **[H2Geo Presets Spec 0.1](https://github.com/jawg/h2geo-presets/blob/master/specs/0.1.md)**
