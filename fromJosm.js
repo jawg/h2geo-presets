@@ -23,16 +23,17 @@ var processXml = function (f) {
       console.error("Error while parsing: " + err);
       throw err;
     }
-    var parsed = result;
-    if (!parsed.presets.$.shortdescription || !parsed.presets.$.description) {
+    var xmlConverted = result;
+    if (!xmlConverted.presets.$.shortdescription || !xmlConverted.presets.$.description) {
       console.error("Error in structure");
       console.log(result);
       throw "Invalid Yaml Structure for file " + f;
     }
-    xmlmapper(parsed);
-    //var filename = path.basename(f, path.extname(f)) + '.json';
-    //fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
-    //return {"name": parsed.name, "description": parsed.description, "file": filename};
+    var parsed = xmlmapper(xmlConverted);
+    var filename = path.basename(f, path.extname(f)) + '.json';
+    fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
+    console.log(parsed);
+    return {"name": parsed.name, "description": parsed.description, "file": filename, "version": parsed.version};
   });
   
   
