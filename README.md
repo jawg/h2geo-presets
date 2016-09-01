@@ -26,5 +26,3 @@ Contributing to OpenStreetMap is not trivial for beginners. Sometimes, you just 
 ## Tweet about it
 
 Contact the team: [@jawgio](https://twitter.com/jawgio)
-
-d
