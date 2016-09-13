@@ -54,8 +54,14 @@ groups:
           - key: access
             type: SINGLE_CHOICE
             values:
-              - 'yes'
-              - 'no'
+              - yes:
+                  default: Yes
+                  fr: Oui
+                  en: Yes
+              - no:
+                  default: No
+                  fr: Non
+                  en: Oui
             description:
               default: Access to the bicycle stand
               en: Access to the bicycle stand
@@ -63,9 +69,15 @@ groups:
           - key: bicycle_parking
             type: SINGLE_CHOICE
             values:
-              - stands
-              - wall_loops
-              - rack
+              - stands: Stands
+              - wall_loops:
+                  default: Wall loops
+                  fr: Cercles muraux
+                  en: Wall Loops
+              - rack:
+                  default: Rack
+                  fr: Rack
+                  en: Rack
             required: false
           - key: capacity
             type: NUMBER

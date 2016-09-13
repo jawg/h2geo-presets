@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const rmdir = require('rmdir-recursive').sync;
-var validator = require('./lib/schema');
+const validator = require('./lib/schema');
+const postProcessor = require('./lib/post-processor');
 
 // Constants
 const outputDir = 'out/';
@@ -23,6 +24,7 @@ var processYaml = function (f) {
     console.error(validation.errors);
   } else {
     console.log("File " + f + " is valid. Will be parsed as preset.");
+    postProcessor.postProcessCleanup(parsed);
   }
   var filename = path.basename(f, path.extname(f)) + '.json';
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
@@ -42,13 +44,14 @@ var processJson = function (f) {
     console.error(validation.errors);
   } else {
     console.log("File " + f + " is valid. Will be parsed as preset.");
+    postProcessor.postProcessCleanup(parsed);
   }
   var filename = path.basename(f);
   var filenameYml = path.basename(f, path.extname(f)) + '.yml';
-  
+
   // Write to output directory
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
-  
+
   // Convert JSON to Yaml
   fs.writeFileSync(baseDir + filenameYml, yaml.safeDump(parsed));
   // Remove Old JSON File
@@ -59,7 +62,7 @@ var processJson = function (f) {
 /**
  * Main processing function factory
  * @param presets the presets object
- * @returns {Function} the function which will process all files 
+ * @returns {Function} the function which will process all files
  */
 var getFileProcessor = function(presets) {
   return function (f) {
@@ -94,10 +97,12 @@ var getFileProcessor = function(presets) {
   }
 };
 
+
+
 var exec = function() {
   // Create output directory
   if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);  
+    fs.mkdirSync(outputDir);
   }
 
   var dir = fs.readdirSync(baseDir);
@@ -106,7 +111,7 @@ var exec = function() {
     lastUpdate: new Date().toISOString(),
     presets: {}
   };
-  
+
   /**
    * Parse directory
    */

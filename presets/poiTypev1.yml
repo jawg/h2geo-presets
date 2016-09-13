@@ -1,0 +1,631 @@
+name:
+  default: Preset Transilien
+  en: Transilien Preset
+  fr: Preset Transilien
+version: '1.2'
+description:
+  default: Tous les éléments pour éditer votre gare Transilien
+author: Vincent Genin
+groups:
+  - name:
+      default: Groupe Transilien
+      en: Transilien group
+      fr: Groupe Transilien
+    items:
+      - name: entree_principale
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['railway'='station']({{bbox}});out meta;"
+        label:
+          default: Entrée principale
+          fr: Entrée principale
+          en: Main entrance
+        description:
+          default: Entrée principale de la gare
+          fr: Entrée principale de la gare
+          en: Station's main entrance
+        keywords:
+          default:
+            - Cheminement
+            - Accessibilité
+          fr:
+            - Cheminement
+            - Acessibilité
+        tags:
+          - key: railway
+            type: CONSTANT
+            value: train_station_entrance
+            show: false
+            editable: false
+          - key: name
+            type: TEXT
+            description:
+              default: Nom de l'entrée
+              en: Entrance name
+              fr: Nom de l'entrée
+          - key: ref
+            type: NUMBER
+            description:
+              default: Numéro de l'entée
+              en: Entrance number
+              fr: Numéro de l'entée
+          - key: exit_to
+            type: TEXT
+            description:
+              default: Nom de la rue de sortie
+              en: Name of the street's exit
+              fr: Nom de la rue de sortie
+      - name: porte
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['railway'='train_station_entrance']({{bbox}});out meta;"
+        label:
+          default: Porte
+          fr: Porte
+          en: Entrance
+        description:
+          default: Porte
+          fr: Porte
+          en: Entrance
+        keywords:
+          default:
+            - Cheminement
+            - Accessibilité
+          fr:
+            - Cheminement
+            - Accessibilité
+        tags:
+          - key: entrance
+            type: SINGLE_CHOICE
+            values:
+              - main: Principale
+              - yes: Secondaire
+              - exit: Sortie uniquement
+              - emergency: Sortie de secours
+              - service: Porte de service
+            description:
+              default: Accès au batiment
+              en: Access to the building
+              fr: Accès au batiment
+          - key: access
+            type: SINGLE_CHOICE
+            description:
+              default: Ouverture au public
+              en: Open to public
+              fr: Ouverture au public
+            values:
+              - public: Complète
+              - customer: Réservée aux clients
+              - private: Entrée privée
+          - key: ref
+            type: NUMBER
+            description:
+              default: Numéro de l'entrée
+              en: Entrance number
+              fr: Numéro de l'entrée
+          - key: name
+            type: TEXT
+            description:
+              default: Nom de l'entrée
+              en: Entry name
+              fr: Nom de l'entrée
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Accès fauteuil roulant
+              en: Wheelchair access
+              fr: Accès fauteuil roulant
+            values:
+              - yes: Complet
+              - limited: 'Restreint (ex: petite marche)'
+              - no: Impossible
+        constraints:
+          - source:
+              type: TAG
+              key: entrance
+            condition:
+              type: EQUALS
+              value: service
+            action:
+              type: SET_TAG_VALUE
+              key: access
+              value: private
+      - name: point d'arrêt train
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        label:
+          default: Point d'arrêt train
+          fr: Point d'arrêt train
+          en: Stop position
+        description:
+          default: Point d'arrêt train
+          fr: Point d'arrêt train
+          en: Stop position
+        keywords:
+          default:
+            - Structure de la gare
+          fr:
+            - Structure de la gare
+        tags:
+          - key: railway
+            type: CONSTANT
+            value: stop
+            show: false
+            editable: false
+          - key: name
+            type: TEXT
+            show: false
+            editable: false
+          - key: public_transport
+            type: CONSTANT
+            value: stop_position
+            show: false
+            editable: false
+          - key: local_ref
+            type: TEXT
+            description:
+              default: Numéro de la voie, sans "voie"
+              fr: Numéro de la voie, sans "voie"
+          - key: from
+            type: TEXT
+            description:
+              default: Terminus provenance
+              fr: Terminus provenance
+          - key: to
+            type: TEXT
+            description:
+              default: Terminus destination
+              fr: Terminus destination
+      - name: escalier
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        label:
+          default: Escalier
+          fr: Escalier
+        description:
+          default: Escalier non mécanique
+          fr: Escalier non mécanique
+        keywords:
+          default:
+            - Escalier
+            - Accessibilité
+            - Cheminement
+          fr:
+            - Escalier
+            - Accessibilité
+            - Cheminement
+        tags:
+          - key: highway
+            type: CONSTANT
+            show: FALSE
+            value: steps
+          - key: level
+            type: LEVEL
+            description:
+              default: Étages desservis
+              fr: Étages desservis
+          - key: step_count
+            type: TEXT
+            description:
+              default: Nombre de marches
+              fr: Nombre de marches
+          - key: handrail
+            type: SINGLE_CHOICE
+            description:
+              default: Rambarde
+              fr: Rambarde
+            values:
+              - yes: Un côté
+              - double: Deux côtés
+              - no
+      - name: escalator
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['highway'='steps']['conveying']['conveying'!='no']({{bbox}});out meta;way(r.transilien)['highway'='steps']['conveying']['conveying'!='no']({{bbox}});out meta center;"
+        label:
+          default: Escalator
+          fr: Escalator
+        description:
+          default: Escalier mécanique
+          fr: Escalier mécanique
+        keywords:
+          default:
+            - Escalator
+            - Accessibilité
+            - Cheminement
+          fr:
+            - Escalator
+            - Accessibilité
+            - Cheminement
+        tags:
+          - key: conveying
+            type: CONSTANT
+            show: FALSE
+            value: yes
+          - key: highway
+            type: CONSTANT
+            show: FALSE
+            value: steps
+          - key: level
+            type: LEVEL
+            description:
+              default: Étages desservis
+              fr: Étages desservis
+          - key: ref
+            type: TEXT
+            description:
+              default: Numéro de référence
+              fr: Numéro de référence
+            validation:
+              length: 4
+      - name: automate de vente de billet
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "node['amenity'='atm']({{bbox}});way['amenity'='atm']({{bbox}});node['atm'='yes']({{bbox}});out meta;way['atm'='yes']({{bbox}});out meta center;"
+        label:
+          default: Automate de vente de billet
+          fr: Automate de vente de billet
+        description:
+          default: Automate de vente de billet
+          fr: Automate de vente de billet
+        keywords:
+          default:
+            - Vente
+            - Billettique
+          fr:
+            - Vente
+            - Billettique
+        tags:
+          - key: amenity
+            type: CONSTANT
+            show: FALSE
+            value: vending_machine
+          - key: amenity
+            type: CONSTANT
+            show: FALSE
+            value: public_transport_tickets
+          - key: network
+            type: MULTI_CHOICE
+            description:
+              default: Réseaux disponibles
+              fr: Réseaux disponibles
+            values:
+              - Transilien: Transilien (ART)
+              - Grandes lignes
+              - RATP
+          - key: payment:coins
+            type: SINGLE_CHOICE
+            description:
+              default: Pièces acceptées
+              fr: Pièces acceptées
+            values:
+              - yes: Oui
+              - no: Non
+          - key: payment:notes
+            type: SINGLE_CHOICE
+            description:
+              default: Billets acceptées
+              fr: Billets acceptées
+            values:
+              - yes: Oui
+              - no: Non
+          - key: operator
+            type: SINGLE_CHOICE
+            description:
+              default: Gestionnaire
+              fr: Gestionnaire
+            values:
+              - SNCF
+              - RATP
+          - key: ref
+            type: TEXT
+            description:
+              default: Numéro de référence
+              fr: Numéro de référence
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Automate accessible handicap
+              fr: Automate accessible handicap
+            values:
+              - yes: Oui
+              - no: Non
+      - name: cab
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['barrier'='turnstile']({{bbox}});out meta;way(r.transilien)['barrier'='turnstile']({{bbox}});out meta center;"
+        label:
+          default: Contrôle automatique de billet (CAB)
+          fr: Contrôle automatique de billet (CAB)
+        description:
+          default: Tourniquet
+          fr: Tourniquet
+        keywords:
+          default:
+            - Cheminement
+            - Billettique
+          fr:
+            - Cheminement
+            - Billettique
+        tags:
+          - key: barrier
+            type: CONSTANT
+            show: FALSE
+            value: turnstile
+          - key: access
+            type: CONSTANT
+            show: FALSE
+            value: customer
+          - key: direction
+            type: SINGLE_CHOICE
+            description:
+              default: Sens de circulation
+              fr: Sens de circulation
+            values:
+              - entrance: Vers les quais
+              - exit: Vers la sortie
+              - both: Les deux
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Accès fauteuil roulant
+              en: Wheelchair access
+              fr: Accès fauteuil roulant
+            values:
+              - yes: Complet (CAB élargi)
+              - no: Impossible
+        constraints:
+          - source:
+              type: TAG
+              key: wheelchair
+            condition:
+              type: EQUALS
+              value: yes
+            action:
+              type: SET_TAG_VALUE
+              key: bicycle
+              value: yes
+          - source:
+              type: TAG
+              key: wheelchair
+            condition:
+              type: EQUALS
+              value: no
+            action:
+              type: SET_TAG_VALUE
+              key: bicycle
+              value: no
+      - name: magasin
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)[shop]['shop'!='newsagent']['shop'!='ticket']['shop'!='convenience']['shop'!='erotic']['shop'!='post_pickup']({{bbox}});out meta;way(r.transilien)[shop]['shop'!='newsagent']['shop'!='ticket']['shop'!='convenience']['shop'!='erotic']['shop'!='post_pickup']({{bbox}});out meta center;"
+        label:
+          default: Magasin
+          fr: Magasin
+        description:
+          default: Commerce
+          fr: Commerce
+        keywords:
+          default:
+            - Service
+            - Commerce
+          fr:
+            - Service
+            - Commerce
+        tags:
+          - key: shop
+            type: TEXT
+            description:
+              default: Type de commerce
+              fr: Type de commerce
+            values:
+              - convenience: Supérette, boutique du quotidien (Hubiz, Petit Casino,...)
+              - newsagent: Presse (Relay,...)
+              - bakery: Boulangerie
+              - pastry: Patisserie
+              - florist: Fleuriste
+              - video_games: Jeux Vidéo
+              - tobacco: Bureau de tabac
+              - chocolate: Chocolatier
+              - cheese: Fromager
+              - greengrocer: Primeur fruits/légumes
+              - butcher: Boucher
+              - seafood: Poissonier
+              - wine: Caviste
+              - department_store: Grand magasin
+              - supermarket: Supermarché / Hypermarché
+              - clothes: Vêtements
+              - shoes: Chaussures
+              - bag: Bagagerie
+              - jewelry: Bijouterie
+              - watches: Montres
+              - beauty: Salon de beauté
+              - chemist:: Droguerie
+              - cosmetics: Parfumerie
+              - optician: Opticien
+              - tatoo: Salon de tatouage
+              - doityourself: Bricolage
+              - hardware: Quincaillerie
+              - locksmith: Serrurier
+              - furniture: Mobilier d'intérieur
+              - mobile_phone: Téléphonie
+              - bicycle: Vélo
+              - car: Concessionnaire automobile
+              - car_repair: Garagiste
+              - books: Librairie
+              - gift: Cadeaux
+              - copyshop: Reprographie
+              - dry_cleaning: Pressing
+              - laundry: Laverie
+          - key: name
+            type: TEXT
+            description:
+              default: Nom
+              fr: Nom
+          - key: opening_hours
+            type: OPENING_HOURS
+            description:
+              default: Horaires
+              fr: Horaires
+          - key: addr:housenumber
+            type: TEXT
+            description:
+              default: Numéro du bâtiment
+              fr: Numéro du bâtiment
+          - key: addr:street
+            type: TEXT
+            description:
+              default: Rue
+              fr: Rue
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Accès fauteuil roulant
+              en: Wheelchair access
+              fr: Accès fauteuil roulant
+            values:
+              - yes: Complet
+              - limited: 'Restreint (ex: petite marche)'
+              - no: Impossible
+      - name: défibrillateur
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['emergency'='defibrillator']({{bbox}});out meta;"
+        label:
+          default: Défibrillateur
+          fr: Défibrillateur
+        description:
+          default: Défibrillateur
+          fr: Défibrillateur
+        keywords:
+          default:
+            - Urgence
+          fr:
+            - Urgence
+        tags:
+          - key: emergency
+            type: CONSTANT
+            show: FALSE
+            value: defibrillator
+      - name: parking
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['amenity'='parking']({{bbox}});out meta;way(r.transilien)['amenity'='parking']({{bbox}});out meta center;"
+        label:
+          default: Parking
+          fr: Parking
+        description:
+          default: Parking
+          fr: Parking
+        keywords:
+          default:
+            - Multimodalité
+          fr:
+            - Multimodalité
+        tags:
+          - key: amenity
+            type: CONSTANT
+            show: FALSE
+            value: parking
+          - key: name
+            type: TEXT
+            description:
+              default: Nom
+              fr: Nom
+          - key: fee
+            type: SINGLE_CHOICE
+            description:
+              default: Payant
+              fr: Payant
+            values:
+              - yes: Oui
+              - no: Non
+          - key: fee
+            type: TEXT
+            description:
+              default: Nombre de places
+              fr: Nombre de places
+            validation:
+              maxLength: 4
+          - key: access
+            type: SINGLE_CHOICE
+            description:
+              default: Accès public
+              fr: Accès public
+            values:
+              - public: Oui
+              - customer: Réservée aux clients
+              - private: Parking privé
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Accès fauteuil roulant
+              en: Wheelchair access
+              fr: Accès fauteuil roulant
+            values:
+              - yes: Complet
+              - limited: 'Restreint (ex: petite marche)'
+              - no: Impossible
+          - key: operator
+            type: TEXT
+            description:
+              default: Gestionnaire
+              fr: Gestionnaire
+            values:
+              - SNCF
+              - mairie: Mairie
+      - name: accueil
+        url: 'http://wiki.openstreetmap.org/wiki/FR:Railway_stations'
+        query: "rel['network'~'Transilien']['type'='public_transport']['public_transport'='stop_area']({{bbox}})->.transilien;node(r.transilien)['information'='office']['operator'='SNCF']({{bbox}});out meta;way(r.transilien)['information'='office']['operator'='SNCF']({{bbox}});out meta center;"
+        label:
+          default: Point d'information / Accueil
+          fr: Point d'information / Accueil
+        description:
+          default: Point d'information / Accueil
+          fr: Point d'information / Accueil
+        keywords:
+          default:
+            - Vente / relation client SNCF
+            - Services
+          fr:
+            - Vente / relation client SNCF
+            - Services
+        tags:
+          - key: tourism
+            type: CONSTANT
+            show: FALSE
+            value: information
+          - key: information
+            type: CONSTANT
+            show: FALSE
+            value: office
+          - key: supervised
+            type: SINGLE_CHOICE
+            description:
+              default: Présence de personnel
+              fr: Présence de personnel
+            values:
+              - yes: Toujours, lorsque la gare est ouverte
+              - no: Jamais
+              - limited: Horaires spécifiques
+          - key: opening_hours
+            type: OPENING_HOURS
+            description:
+              default: Horaires d'ouverture
+              fr: Horaires d'ouverture
+          - key: lost_property
+            type: SINGLE_CHOICE
+            description:
+              default: Objets trouvés
+              fr: Objets trouvés
+            values:
+              - yes: Disponible
+              - no: Non disponible
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            description:
+              default: Accès fauteuil roulant
+              en: Wheelchair access
+              fr: Accès fauteuil roulant
+            values:
+              - yes: Complet (accueil accessible)
+              - limited: 'Restreint (ex: petite marche)'
+              - no: Impossible
+          - key: service:SNCF:acces_plus
+            type: SINGLE_CHOICE
+            description:
+              default: Service Accès Plus
+              fr: Service Accès Plus
+            values:
+              - yes: Disponible
+              - no: Non disponible
