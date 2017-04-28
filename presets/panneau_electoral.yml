@@ -1,0 +1,50 @@
+ame:
+  default: Preset Panneau Electoral
+  en: Political Board Preset
+  fr: Preset Panneau Electoral
+version: '0.1'
+author: PaDe
+link: https://github.com/jawg/h2geo-presets
+description:
+  default: Pour contribuer au sujet des Panneaux Electoraux
+  en: To contribute on Political Boards
+  fr: Pour contribuer au sujet des Panneaux Electoraux
+image: 'https://commons.wikimedia.org/wiki/File:PanneauElectoral_20170423.jpg'
+groups:
+  - name:
+      default: Advertising
+      en: Advertising
+      fr: Publicité
+     icon: 'https://commons.wikimedia.org/wiki/File:PanneauElectoral_20170423.jpg'
+     url: 'https://wiki.openstreetmap.org/wiki/Category:Advertising'
+     items:
+      - name: advertising=board
+        url: 'https://wiki.openstreetmap.org/wiki/FR:Tag:advertising%3Dboard'
+        label:
+          default: Advertising board
+          en: Advertising board
+          fr: Panneau électoral
+        description:
+          default: Advertising board for political advertising during electoral campaign
+          en: Advertising board for political advertising during electoral campaign
+          fr: Panneau électoral, pour les candidats aux élections
+        keywords:
+          default:
+            - Advertising
+            - Political board
+          en:
+            - Advertising
+            - Political board
+          fr:
+            - Publicité
+            - Panneau electoral
+        tags:
+          - key: advertising
+            value: board
+            type: CONSTANT
+          - key: permanent
+            value : no
+            type: CONSTANT
+          - key: message
+            value : political
+            type: CONSTANT
