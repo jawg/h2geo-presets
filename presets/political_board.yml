@@ -38,7 +38,7 @@ groups:
           - 
             key: permanent
             type: CONSTANT
-            value: false
+            value: no
           - 
             key: message
             type: CONSTANT
