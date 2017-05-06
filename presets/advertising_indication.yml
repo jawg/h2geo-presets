@@ -1,9 +1,9 @@
 --- 
 author: PaDe
 description: 
-  default: "Pour participer à l'inventaire des préenseignes publicitaires en France, qui sont presque à 100% illégales."
-  en: "To participate in inventorying advertising indication boards in France, which are almost 100% unlawfull."
-  fr: "Pour participer à l'inventaire des préenseignes publicitaires en France, qui sont presque à 100% illégales."
+  default: "Pour participer à l'inventaire des préenseignes publicitaires en France, et recenser celles qui sont illégales."
+  en: "To participate in the creation of the inventory for advertising indicator boards, in France."
+  fr: "Pour participer à l'inventaire des préenseignes publicitaires en France, et recenser celles qui sont illégales."
 groups: 
   - 
     icon: "https://wiki.openstreetmap.org/wiki/File:Indication.svg"
@@ -34,19 +34,19 @@ groups:
               type: TAG
         description: 
           default: "Une préenseigne publicitaire, dispositif publicitaire hors-agglomération, pour présignaliser une activité."
-          en: "An indication board, found along a rural road, to advertise proximity of a craft/commercial/industrial activity. Rural advertising board."
+          en: "An indicator board found along a rural road, which advertises the proximity of a craft/commercial/industrial activity."
           fr: "Une préenseigne publicitaire, dispositif publicitaire hors-agglomération, pour présignaliser une activité."
         icon: "https://wiki.openstreetmap.org/wiki/File:Indication.svg"
         keywords: 
           default: 
             - "préenseigne publicité"
           en: 
-            - "advertising indication board"
+            - "advertising indicator board"
           fr: 
             - "préenseigne publicité"
         label: 
           default: "Préenseigne publicitaire"
-          en: "Advertising indication board"
+          en: "Advertising indicator board"
           fr: "Préenseigne publicitaire"
         name: advertising=board
         query: "node['advertising'='board']['legal_type:FR'='préenseigne']({{bbox}});out meta;out meta center;"
@@ -112,3 +112,4 @@ name:
   en: "Advertising indication board"
   fr: "Préenseigne publicitaire"
 version: "0.1"
+
