@@ -10,13 +10,14 @@ groups:
     items: 
       - 
         description: 
-          default: "Advertising board for political advertising during electoral campaign"
-          en: "Advertising board for political advertising during electoral campaign"
-          fr: "Panneau électoral, pour les candidats aux élections"
+          default: "Panneau électoral, pour les candidats aux élections."
+          en: "Advertising board for political advertising during electoral campaign."
+          fr: "Panneau électoral, pour les candidats aux élections."
+        icon: "https://wiki.openstreetmap.org/wiki/File:Political_Board_3.svg"
         keywords: 
           default: 
-            - Advertising
-            - "Political board"
+            - Publicité
+            - "Panneau électoral"
           en: 
             - Advertising
             - "Political board"
@@ -24,10 +25,11 @@ groups:
             - Publicité
             - "Panneau électoral"
         label: 
-          default: "Advertising board"
+          default: "Panneau électoral"
           en: "Advertising board"
           fr: "Panneau électoral"
         name: advertising=board
+        query: "node['advertising'='board']['message'='political']({{bbox}});out meta;out meta center;"
         tags: 
           - 
             key: advertising
@@ -36,21 +38,21 @@ groups:
           - 
             key: permanent
             type: CONSTANT
-            value: "false"
+            value: false
           - 
             key: message
             type: CONSTANT
             value: political
         url: "https://wiki.openstreetmap.org/wiki/FR:Tag:advertising%3Dboard"
     name: 
-      default: Advertising
+      default: Publicité
       en: Advertising
       fr: Publicité
     url: "https://wiki.openstreetmap.org/wiki/Category:Advertising"
 image: "https://commons.wikimedia.org/wiki/File:PanneauElectoral_20170423.jpg"
 link: "https://github.com/jawg/h2geo-presets"
 name: 
-  default: "Preset Panneau Électoral"
-  en: "Political Board Preset"
-  fr: "Preset Panneau Électoral"
-version: "0.1"
+  default: "Panneaux Électoraux"
+  en: "Political Boards"
+  fr: "Panneaux Électoraux"
+version: "0.2"
