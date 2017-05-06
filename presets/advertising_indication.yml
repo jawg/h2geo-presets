@@ -1,0 +1,114 @@
+--- 
+author: PaDe
+description: 
+  default: "Pour participer à l'inventaire des préenseignes publicitaires en France, qui sont presque à 100% illégales."
+  en: "To participate in inventorying advertising indication boards in France, which are almost 100% unlawfull."
+  fr: "Pour participer à l'inventaire des préenseignes publicitaires en France, qui sont presque à 100% illégales."
+groups: 
+  - 
+    icon: "https://wiki.openstreetmap.org/wiki/File:Indication.svg"
+    items: 
+      - 
+        constraints: 
+          - 
+            action: 
+              key: "legal_status:FR"
+              type: SET_TAG_VALUE
+              value: illégal
+            condition: 
+              type: EQUALS
+              value: autres
+            source: 
+              key: message
+              type: TAG
+          - 
+            action: 
+              key: "legal_type:FR"
+              type: SET_TAG_VALUE
+              value: publicité
+            condition: 
+              type: EQUALS
+              value: autres
+            source: 
+              key: message
+              type: TAG
+        description: 
+          default: "Une préenseigne publicitaire, dispositif publicitaire hors-agglomération, pour présignaliser une activité."
+          en: "An indication board, found along a rural road, to advertise proximity of a craft/commercial/industrial activity. Rural advertising board."
+          fr: "Une préenseigne publicitaire, dispositif publicitaire hors-agglomération, pour présignaliser une activité."
+        icon: "https://wiki.openstreetmap.org/wiki/File:Indication.svg"
+        keywords: 
+          default: 
+            - "préenseigne publicité"
+          en: 
+            - "advertising indication board"
+          fr: 
+            - "préenseigne publicité"
+        label: 
+          default: "Préenseigne publicitaire"
+          en: "Advertising indication board"
+          fr: "Préenseigne publicitaire"
+        name: advertising=board
+        query: "node['advertising'='board']['legal_type:FR'='préenseigne']({{bbox}});out meta;out meta center;"
+        tags: 
+          - 
+            key: advertising
+            type: CONSTANT
+            value: board
+          - 
+            key: support
+            type: CONSTANT
+            value: post
+          - 
+            key: man_made
+            type: CONSTANT
+            value: advertising
+          - 
+            key: size
+            type: CONSTANT
+            value: 1*1.5
+          - 
+            key: operator
+            required: false
+            type: TEXT
+          - 
+            key: land_property
+            type: SINGLE_CHOICE
+            values: 
+              - private
+              - public
+          - 
+            key: message
+            type: SINGLE_CHOICE
+            values: 
+              - terroir
+              - "monument historique"
+              - culturel
+              - "exceptionnel & temporaire"
+              - autres
+          - 
+            key: "legal_status:FR"
+            type: SINGLE_CHOICE
+            values: 
+              - légal
+              - "à vérifier"
+              - illégal
+          - 
+            key: "legal_type:FR"
+            type: SINGLE_CHOICE
+            values: 
+              - publicité
+              - préenseigne
+        url: "https://wiki.openstreetmap.org/wiki/FR:Tag:advertising%3Dboard"
+    name: 
+      default: Publicité
+      en: Advertising
+      fr: Publicité
+    url: "https://wiki.openstreetmap.org/wiki/Category:Advertising"
+image: "https://wiki.openstreetmap.org/wiki/File:Indication.svg"
+link: "https://github.com/jawg/h2geo-presets"
+name: 
+  default: "Préenseigne publicitaire"
+  en: "Advertising indication board"
+  fr: "Préenseigne publicitaire"
+version: "0.1"
