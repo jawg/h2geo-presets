@@ -22,6 +22,7 @@ var processYaml = function (f) {
   if (!validation.valid) {
     console.error("File " + f + " is invalid. Will be ignored in parsing.");
     console.error(validation.errors);
+    process.exit(1);
   } else {
     console.log("File " + f + " is valid. Will be parsed as preset.");
     postProcessor.postProcessCleanup(parsed);
@@ -42,6 +43,7 @@ var processJson = function (f) {
   if (!validation.valid) {
     console.error("File " + f + " is invalid. Will be ignored in parsing.");
     console.error(validation.errors);
+    process.exit(1);
   } else {
     console.log("File " + f + " is valid. Will be parsed as preset.");
     postProcessor.postProcessCleanup(parsed);
@@ -93,6 +95,7 @@ var getFileProcessor = function(presets) {
       }
     } catch (err) {
       console.error(err);
+      process.exit(-1);
     }
   }
 };
