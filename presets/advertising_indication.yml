@@ -2,7 +2,7 @@ name:
   default: "Préenseigne publicitaire"
   en: "Advertising indicator board"
   fr: "Préenseigne publicitaire"
-version: '0.4'
+version: '0.58'
 author: PaDe
 link: http://github.com/jawg/h2geo-presets
 description:
@@ -21,7 +21,7 @@ groups:
       - name: advertising=board
         url: 'http://wiki.openstreetmap.org/wiki/Tag:advertising%3Dboard'
         icon: 'https://wiki.openstreetmap.org/w/images/e/e8/Indication.svg'
-        query: "(node['advertising'='board']['legal_type:FR'='préenseigne']({{bbox}});node['advertising'='board']['legal_type:FR'='publicité']({{bbox}}););out body;out skel qt;"
+        query: "(node['advertising'='board']['legal_type:FR'='préenseigne']({{bbox}});node['advertising'='board']['legal_type:FR'='publicité']({{bbox}}););out body;"
         label:
           default: "Préenseigne publicitaire"
           en: "Advertising indicator board"
@@ -66,52 +66,27 @@ groups:
               en: "Advertiser or operator board"
           - key: land_property
             type: SINGLE_CHOICE
-            required: false
+            required: true
             description:
               default: "Le panneau est-il sur le domaine public ou sur un fonds privé ?"
               fr: "Le panneau est-il sur le domaine public ou sur un fonds privé ?"
               en: "Is the board on public ou private domain ?"
             values:
-              - private:
-                default: "Propriété privée"
-                fr: "Propriété privée"
-                en: "Private property"
-              - public:
-                default: "Domaine public"
-                fr: "Domaine public"
-                en: "Public domain"
+              - private: Propriété privée
+              - public: Domaine public
           - key: message
             type: SINGLE_CHOICE
-            required: yes
+            required: true
             description:
-              default: Type d'activité annoncée
-              fr: Type d'activité annoncée
-              en: Type of activity advertised
+              default: "Type d'activité annoncée"
+              fr: "Type d'activité annoncée"
+              en: "Type of activity advertised"
             values:
-              - terroir:
-                default: "Fabrication ou vente produits terroirs par des entreprises locales"
-                fr: "Fabrication ou vente produits terroirs par des entreprises locales"
-                en: "Manufacturing or selling products terroirs from local businesses"
-              - historic_monument:
-                default: "Monument historique inscrit ou classé ouvert à la visite"
-                fr: "Monument historique inscrit ou classé ouvert à la visite"
-                en: "Historical monument open to visitors"
-              - cultural:
-                default: "Activités culturelles (spectacles vivants ou cinématographiques/exposition arts plastiques)"
-                fr: "Activités culturelles (spectacles vivants ou cinématographiques/exposition arts plastiques)"
-                en: "Cultural activities (performing arts or films/visual arts exhibition)"
-              - temporary:
-                default: "A titre temporaire  opérations et manifestations exceptionnelles"
-                fr: "A titre temporaire  opérations et manifestations exceptionnelles"
-                en: "On a temporary basis  exceptional operations and events"
-              - other:
-                default: "Toute autre activité"
-                fr: "Toute autre activité"
-                en: "Any other activity"
-            description:
-              default: "Seules 4 types d'activités peuvent être annoncées sur une préenseigne publicitaire en France."
-              en: "Only 4 types of activities can use indication board in France."
-              fr: "Seules 4 types d'activités peuvent être annoncées sur une préenseigne publicitaire en France."
+              - terroir: "Fabrication ou vente produits terroirs par des entreprises locales"
+              - historic_monument: "Monument historique inscrit ou classé ouvert à la visite"
+              - cultural: "Activités culturelles (spectacles vivants ou cinématographiques/exposition arts plastiques)"
+              - temporary: "A titre temporaire  opérations et manifestations exceptionnelles"
+              - other: "Toute autre activité"
         constraints:
           - source:
               type: TAG
@@ -173,5 +148,3 @@ groups:
               type: SET_TAG_VALUE
               key: legal_type:FR
               value: préenseigne
-
-
