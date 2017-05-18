@@ -1,0 +1,184 @@
+name:
+  default: Panneau publicitaire
+  en: Advertising billboard
+  fr: Panneau publicitaire
+version: '0.32'
+author: PaDe
+link: http://github.com/jawg/h2geo-presets
+description:
+  default: Pour faire l'inventaire des panneaux publicitaires.
+  en: To do the inventory of advertising billboards.
+  fr: Pour faire l'inventaire des panneaux publicitaires en France.
+image: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Legaal_aanplakken.jpg'
+groups:
+  - name:
+      default: Publicité
+      en: Advertising
+      fr: Publicité
+    icon: 'http://wiki.openstreetmap.org/w/images/d/d3/Billboard_trunk.svg'
+    url: 'http://wiki.openstreetmap.org/wiki/Category:Advertising'
+    items:
+      - name: advertising=billboard
+        url: 'https://wiki.openstreetmap.org/wiki/Tag%3Aadvertising%3Dbillboard'
+        icon: 'http://wiki.openstreetmap.org/w/images/d/d3/Billboard_trunk.svg'
+        query: "node['advertising'='billboard']({{bbox}});out meta;out meta center;"
+        label:
+          default: Panneau publicitaire
+          en: Advertising billboard
+          fr: Panneau publicitaire
+        description:
+          default: "Un panneau publicitaire grand format."
+          en: "A large size billboard."
+          fr: "Un panneau publicitaire grand format."
+        keywords:
+          default:
+            - panneau publicité pub
+          en:
+            - advertising billboard
+          fr:
+            - panneau publicité pub
+        tags:
+          - key: man_made
+            value: advertising
+            type: CONSTANT
+            show: false
+          - key: advertising
+            value: billboard
+            type: CONSTANT
+            show: false
+          - key: support
+            type: SINGLE_CHOICE
+            required: false
+            description:
+              default: "Par quoi est supporté le panneau ?"
+              fr: "Par quoi est supporté le panneau ?"
+              en: "What does support the billboard ?"
+            values:
+              - trunk : Tronc scellé au sol
+              - poles :  Pylônes scellés au sol
+              - wall : Panneau mural
+          - key: type
+            type: SINGLE_CHOICE
+            required: false
+            description:
+              default: "Type du panneau"
+              fr: "Type du panneau"
+              en: "Billboard type"
+            values:
+              - glasscase : un caisson lumineux, souvent animé
+              - trivision : un caisson animé par rotation de triangles
+              - glue : un panneau sur lequel on colle des affiches
+          - key: display_surface
+            type: SINGLE_CHOICE
+            required: false
+            description:
+              default: "Surface d'affichage"
+              fr: "Surface d'affichage"
+              en: "Display surface"
+            values:
+              - 4 : 2 m. de large sur 2 m. de haut, soit 4 m²
+              - 8 : 3.2 m. de large sur 2.5 m. de haut, soit 8 m²
+              - 12 : 3 m. de large sur 4 m. de haut, soit 12 m²
+          - key: operator
+            type: SINGLE_CHOICE
+            required: false
+            description:
+              default: "Opérateur (ou annonceur)"
+              fr: "Opérateur (ou annonceur)"
+              en: "Operator (or advertiser)"
+            values:
+              - JCDecaux :
+              - ClearChannel :
+              - Giraudy :
+          - key: land_property
+            type: SINGLE_CHOICE
+            required: false
+            description:
+              default: "Le panneau est-il sur le domaine public ou sur un fonds privé ?"
+              fr: "Le panneau est-il sur le domaine public ou sur un fonds privé ?"
+              en: "Is the board on public ou private domain ?"
+            values:
+              - private : Propriété privée
+              - public : Domaine public
+          - key: message
+            type: SINGLE_CHOICE
+            required: true
+            description:
+              default: "Type d'activité annoncée"
+              fr: "Type d'activité annoncée"
+              en: "Type of activity advertised"
+            values:
+              - commercial : Panneau commercial
+              - information : Mobilier urbain d'information
+              - both : Un côté commercial, un côté information
+          - key: lit
+            type: SINGLE_CHOICE
+            required: true
+            description:
+              default: "Le panneau est-il éclairé ?"
+              fr: "Le panneau est-il éclairé ?"
+              en: "Is the billboard lit ?"
+            values:
+              - yes : Panneau éclairé
+              - no : Panneau non éclairé
+        constraints:
+          - source:
+              type: TAG
+              key: type
+            condition:
+              type: EQUALS
+              value: glasscase
+            action:
+              type: SET_TAG_VALUE
+              key: luminous
+              value: yes
+          - source:
+              type: TAG
+              key: type
+            condition:
+              type: EQUALS
+              value: glasscase
+            action:
+              type: SET_TAG_VALUE
+              key: lit
+              value: no
+          - source:
+              type: TAG
+              key: display_surface
+            condition:
+              type: EQUALS
+              value: 4
+            action:
+              type: SET_TAG_VALUE
+              key: size
+              value: "2*2"
+          - source:
+              type: TAG
+              key: display_surface
+            condition:
+              type: EQUALS
+              value: 84
+            action:
+              type: SET_TAG_VALUE
+              key: size
+              value: "3.2*2.5"
+          - source:
+              type: TAG
+              key: display_surface
+            condition:
+              type: EQUALS
+              value: 12
+            action:
+              type: SET_TAG_VALUE
+              key: size
+              value: "4*3"
+          - source:
+              type: TAG
+              key: type
+            condition:
+              type: EQUALS
+              value: glue
+            action:
+              type: SET_TAG_VALUE
+              key: animated
+              value: no
