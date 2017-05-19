@@ -87,9 +87,9 @@ groups:
               fr: "Opérateur (ou annonceur)"
               en: "Operator (or advertiser)"
             values:
-              - JCDecaux :
-              - ClearChannel :
-              - Giraudy :
+              - JCDecaux
+              - ClearChannel
+              - Giraudy
           - key: land_property
             type: SINGLE_CHOICE
             required: false
