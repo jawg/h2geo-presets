@@ -23,6 +23,7 @@ groups:
           default:
             - camera
             - surveillance
+            - video
         tags:
           - key: man_made
             value: surveillance
@@ -30,29 +31,84 @@ groups:
           - key: surveillance:type
             value: camera
             type: CONSTANT
+            description: Type of camera
           - key: surveillance
             type: SINGLE_CHOICE
+            description:
+              default: The nature of surveilled space
+              fr: La nature de l'espace surveillé
+              en: The nature of surveilled space
             values:
               - public:
                   default: public
+                  fr: Public
+                  en: Public
               - indoor:
                   default: indoor
+                  fr: Intérieur
+                  en: Indoor
               - outdoor:
                   default: outdoor
-            description:
-              default: Type of surveillance
+                  fr: Extérieur
+                  en: Outdoor
           - key: camera:type
             type: SINGLE_CHOICE
+            description:
+              default: The type of camera
+              fr: Le type de caméra
+              en: The type of camera
             values:
               - fixed:
                   default: fixed
+                  fr: Fixe
+                  en Fixed
               - dome:
                   default: dome
+                  fr: Dome
+                  en: Dome
               - panning:
                   default: panning
+                  fr: Panoramique
+                  en: Panning
+            required: false
+          - key: surveillance:zone
+            type: SINGLE_CHOICE
+            description:
+              default: Zone of the surveillance
+              fr: Nature de la zone surveillée
+              en: Zone of the surveillance
+            values:
+              - town:
+                default: town
+                fr: Espace urbain
+                en: Town
+              - parking:
+                default: parking
+                fr: Parking
+                en: Parking
+              - traffic:
+                default: Traffic
+                fr: Trafic
+                en: Traffic
+              - shop:
+                default: Shop
+                fr: Magasin
+                en: Shop
+              - bank:
+                default: bank
+                fr: Banque
+                en: Bank
+              - building:
+                default: building
+                fr: Bâtiment
+                en: Building
             required: false
           - key: height
             type: NUMBER
+            description:
+              default: The approximate height of the camera
+              fr: La hauteur approximative de la caméra
+              en: The approximate height of the camera
             required: false
           - key: camera:direction
             type: NUMBER
@@ -62,6 +118,10 @@ groups:
             required: false
           - key: camera:angle
             type: NUMBER
+            description:
+              default: The approximate angle of the camera
+              fr: L'angle approximatif de la caméra
+              en: The approximate angle of the camera
             validation:
               minValue: -90
               maxValue: 90
