@@ -79,29 +79,29 @@ groups:
               en: Zone of the surveillance
             values:
               - town:
-                default: town
-                fr: Espace urbain
-                en: Town
+                  default: town
+                  fr: Espace urbain
+                  en: Town
               - parking:
-                default: parking
-                fr: Parking
-                en: Parking
+                  default: parking
+                  fr: Parking
+                  en: Parking
               - traffic:
-                default: Traffic
-                fr: Trafic
-                en: Traffic
+                  default: Traffic
+                  fr: Trafic
+                  en: Traffic
               - shop:
-                default: Shop
-                fr: Magasin
-                en: Shop
+                  default: Shop
+                  fr: Magasin
+                  en: Shop
               - bank:
-                default: bank
-                fr: Banque
-                en: Bank
+                  default: bank
+                  fr: Banque
+                  en: Bank
               - building:
-                default: building
-                fr: Bâtiment
-                en: Building
+                  default: building
+                  fr: Bâtiment
+                  en: Building
             required: false
           - key: height
             type: NUMBER
