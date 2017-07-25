@@ -61,7 +61,7 @@ groups:
               - fixed:
                   default: fixed
                   fr: Fixe
-                  en Fixed
+                  en: Fixed
               - dome:
                   default: dome
                   fr: Dome
