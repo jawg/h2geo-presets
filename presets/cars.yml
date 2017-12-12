@@ -396,6 +396,7 @@ groups:
                   default: '600'
       - name: shop=car_repair
         url: 'https://wiki.openstreetmap.org/wiki/Tag:shop=car_repair'
+        query: "(node[amenity=car_repair]({{bbox}});way[amenity=car_repair]({{bbox}}););out center;"
         label:
           kk: Автосервис
           de: Autowerkstatt
@@ -452,6 +453,8 @@ groups:
             type: TEXT
       - name: amenity=car_wash
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=car_wash'
+        icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/vehicle/car_wash.svg'
+        query: "(node[amenity=car_wash]({{bbox}});way[amenity=car_wash]({{bbox}}););out center;"
         label:
           kk: Автожуу
           de: Waschanlage
