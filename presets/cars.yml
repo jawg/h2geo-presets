@@ -19,7 +19,7 @@ groups:
       - name: amenity=car_pooling
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcar_pooling'
         icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/shop/vehicle.svg'
-        query: "(node["amenity"="car_pooling"]({{bbox}});way["amenity"="car_pooling"({{bbox}}););out center;"
+        query: '(node[amenity=car_pooling]({{bbox}});way[amenity=car_pooling]({{bbox}}););out center;'
         label:
           default: Car pooling station
           fr: Aire de stationnement de covoiturage
@@ -57,7 +57,7 @@ groups:
       - name: amenity=car_sharing
         icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/vehicle/car_sharing.svg'
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=car_sharing'
-        query: "(node["amenity"="car_sharing"]({{bbox}});way["amenity"="car_sharing"({{bbox}}););out center;"
+        query: "(node[amenity=car_sharing]({{bbox}});way[amenity=car_sharing]({{bbox}}););out center;"
         label:
           de: Carsharing
           ru: краткосрочная аренда автомобиля
@@ -195,7 +195,7 @@ groups:
       - name: amenity=car_rental
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=car_rental'
         icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/vehicle/car_rental.svg'
-        query: "(node["amenity"="car_rental"]({{bbox}});way["amenity"="car_rental"({{bbox}}););out center;"
+        query: "(node[amenity=car_rental]({{bbox}});way[amenity=car_rental]({{bbox}}););out center;"
         label:
           de: Autovermietung
           ru: прокат автомобилей
@@ -207,7 +207,7 @@ groups:
           yue: 出租車
           en: car rental
           it: noleggio auto
-          fr: location de voiture
+          fr: agence de location de voiture
           es: alquiler de vehículos
           zh: 汽車租賃
           cs: Autopůjčovna
@@ -265,7 +265,7 @@ groups:
       - name: amenity=charging_station
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=charging_station'
         icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/vehicle/charging_station.svg'
-        query: "(node["amenity"="charging_station"]({{bbox}});way["amenity"="charging_station"({{bbox}}););out center;"
+        query: "(node[amenity=charging_station]({{bbox}});way[amenity=charging_station]({{bbox}}););out center;"
         label:
           de: Stromtankstelle
           ru: Инфраструктура зарядки электромобилей
@@ -560,7 +560,7 @@ groups:
       - name: amenity=parking
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=parking'
         icon: 'https://josm.openstreetmap.de/export/13199/josm/trunk/images/presets/vehicle/parking/parking.svg'
-        query: "(node["amenity"="parking"]({{bbox}});way["amenity"="parking"({{bbox}}););out center;"
+        query: "(node[amenity=parking]({{bbox}});way[amenity=parking]({{bbox}}););out center;"
         label:
           de: Parkplatz
           fi: Pysäköintialue
