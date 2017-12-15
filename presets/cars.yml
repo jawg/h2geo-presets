@@ -8,7 +8,7 @@ link: https://github.com/jawg/h2geo-presets
 description:
   default: The only profile you need to contribute your favourite car amenities.
   en: The only profile you need to contribute your favourite car amenities.
-  fr: Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux voitures.
+  fr: Pour contribuer sur les équipements utiles aux voitures et à leurs passagers.
 image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Auto_stoped_highway.JPG'
 groups:
   - name:
@@ -22,7 +22,7 @@ groups:
         query: '(node[amenity=car_pooling]({{bbox}});way[amenity=car_pooling]({{bbox}}););out center;'
         label:
           default: Car pooling station
-          fr: Aire de stationnement de covoiturage
+          fr: Aire de covoiturage
           en: Car pooling station
         description:
           default: A place where you meet to get in (or where you get dropped off) someone's car.
@@ -102,9 +102,7 @@ groups:
             Carsharing station, where you get your booked car, often separate
             areas on parking places.
           fr: >-
-            Station où il est possible de récupérer une voiture louée par l'intermédiaire d'un
-            système d'autopartage. Il s'agit, très souvent, d'espace séparés sur
-            un parking.
+            Une station d'autopartage
           default: >-
             Carsharing station, where you get your booked car, often separate
             areas on parking places.
@@ -231,9 +229,7 @@ groups:
             ενοικιαστούν αυτοκίνητα
           ja: 自動車を借りることができる場所を記します。
           en: A place from which cars can be rented.
-          fr: >-
-            marque un endroit où on peut louer des voitures/véhicules
-            automobiles.
+          fr: Un endroit où on peut louer une voiture
           default: A place from which cars can be rented.
         keywords:
           ru:
@@ -272,7 +268,7 @@ groups:
           sv: Laddstolpe
           sr-ec: Акумулаторска станица
           en: Charging station
-          fr: station de recharge
+          fr: station de recharge électrique
           es: Estación de carga
           zh: 電動車充電站
           ar: محطة شحن
@@ -480,6 +476,7 @@ groups:
         description:
           cs: Myčka aut
           de: Autowaschanlage
+          fr: Un endroit pour laver sa voiture
           fi: ''
           ru: Автомойка.
           pt-br: Um lugar onde você pode lavar seu carro.
@@ -600,7 +597,7 @@ groups:
           ja: 自動車を駐車する場所
           en: A place for parking cars
           it: Un luogo dove parcheggiare le automobili
-          fr: Un lieu pour garer des voitures
+          fr: Un lieu pour garer sa voiture
           pl: Miejsca na zaparkowanie pojazdu
           es: Sitio para el aparcamiento de carros
           nl: Een terrein voor het parkeren van auto's

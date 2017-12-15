@@ -1,8 +1,12 @@
 author: h2geo
 name:
   default: Default h2geo preset
+  en: Profil par défaut
+  fr: Default h2geo preset
 description:
   default: This profile contains the crawled data from the OpenStreetMap Wiki by h2geo
+  fr: Ce profil contient des données exportées du Wiki OpenStreetMap
+  en: This profile contains the crawled data from the OpenStreetMap Wiki by h2geo
 version: 0.5.0-SNAPSHOT
 lastUpdate: '2016-09-13T22:37:01.716'
 groups:
