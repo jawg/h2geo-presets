@@ -63,3 +63,15 @@ groups:
               default: Is there a bench?
               en: Is there a bench?
               fr: Est-ce qu'il y a un banc ?
+          - key: amenity
+            type: MULTI_CHOICE_IMAGE
+            images:
+              - alt: Sikh
+                src: osm-icons://2020 stBN placeofworship sikh
+                value: sikh
+              - alt: Zoroastrian
+                src: osm-icons://2020 st placeofworship zoroastrian
+                value: sikh
+              - alt: Pastafarian
+                src: osm-icons://2020 stBN placeofworship pastafarian
+                value: sikh
