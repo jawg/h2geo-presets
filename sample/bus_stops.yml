@@ -64,14 +64,17 @@ groups:
               en: Is there a bench?
               fr: Est-ce qu'il y a un banc ?
           - key: amenity
-            type: MULTI_CHOICE_IMAGE
+            type: MULTI_CHOICE
+            values:
+              - sikh
+              - sikh2
+              - sikh3
             images:
-              - alt: Sikh
-                src: osm-icons://2020 stBN placeofworship sikh
-                value: sikh
-              - alt: Zoroastrian
-                src: osm-icons://2020 st placeofworship zoroastrian
-                value: sikh
-              - alt: Pastafarian
-                src: osm-icons://2020 stBN placeofworship pastafarian
-                value: sikh
+              - sikh: osm-icons://2020 stBN placeofworship sikh
+              - sikh2:
+                  default: osm-icons://2020 st placeofworship zoroastrian
+                  fr: osm-icons://2020 st placeofworship zoroastrian
+                  en: osm-icons://2020 st placeofworship zoroastrian
+              - sikh3: osm-icons://2020 stBN placeofworship pastafarian
+            statement: Is it a real tag anyway?
+            persist: false
