@@ -30,7 +30,7 @@
           "url": "https://wiki.openstreetmap.org/wiki/Tag:public_transport=platform",
           "label": { "default": "Bus stop", "en": "Bus stop", "fr": "Arrêt de bus" },
           "description": {
-            "default*": "Place where the passengers wait for the bus.",
+            "default": "Place where the passengers wait for the bus.",
             "en": "Place where the passengers wait for the bus.",
             "fr": "Lieu où les voyageurs attendent le bus."
           },
@@ -61,6 +61,28 @@
                 "en": "Is there a bench?",
                 "fr": "Est-ce qu'il y a un banc ?"
               }
+            },
+            {
+              "key": "amenity",
+              "type": "MULTI_CHOICE",
+              "values": [
+                { "sikh": { "default": "sikh" } },
+                { "sikh2": { "default": "sikh2" } },
+                { "sikh3": { "default": "sikh3" } }
+              ],
+              "images": [
+                { "sikh": "osm-icons://2020 stBN placeofworship sikh" },
+                {
+                  "sikh2": {
+                    "default": "osm-icons://2020 st placeofworship zoroastrian",
+                    "fr": "osm-icons://2020 st placeofworship zoroastrian",
+                    "en": "osm-icons://2020 st placeofworship zoroastrian"
+                  }
+                },
+                { "sikh3": "osm-icons://2020 stBN placeofworship pastafarian" }
+              ],
+              "statement": "Is it a real tag anyway?",
+              "persist": false
             }
           ]
         }
