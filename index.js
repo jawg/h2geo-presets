@@ -18,7 +18,9 @@ const baseDir = 'presets/';
 var processYaml = function (f) {
   // Convert Yaml to JSON
   var parsed = yaml.safeLoad(fs.readFileSync(baseDir + f));
-  var validation = validator.validate(parsed);
+  var presetName = path.basename(f, path.extname(f));
+  var filename = presetName + '.json';
+  var validation = validator.validate(parsed, presetName);
   if (!validation.valid) {
     console.error("File " + f + " is invalid. Will be ignored in parsing.");
     console.error(validation.errors);
@@ -27,7 +29,6 @@ var processYaml = function (f) {
     console.log("File " + f + " is valid. Will be parsed as preset.");
     postProcessor.postProcessCleanup(parsed);
   }
-  var filename = path.basename(f, path.extname(f)) + '.json';
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
   return {"name": parsed.name, "description": parsed.description, "version": parsed.version, "image": parsed.image, "file": filename};
 };
@@ -39,7 +40,10 @@ var processYaml = function (f) {
  */
 var processJson = function (f) {
   var parsed = JSON.parse(fs.readFileSync(baseDir + f));
-  var validation = validator.validate(parsed);
+  var presetName = path.basename(f, path.extname(f));
+  var filename = path.basename(f);
+  var filenameYml = presetName + '.yml';
+  var validation = validator.validate(parsed, presetName);
   if (!validation.valid) {
     console.error("File " + f + " is invalid. Will be ignored in parsing.");
     console.error(validation.errors);
@@ -48,8 +52,6 @@ var processJson = function (f) {
     console.log("File " + f + " is valid. Will be parsed as preset.");
     postProcessor.postProcessCleanup(parsed);
   }
-  var filename = path.basename(f);
-  var filenameYml = path.basename(f, path.extname(f)) + '.yml';
 
   // Write to output directory
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
@@ -78,6 +80,7 @@ var getFileProcessor = function(presets) {
 
       var ext = path.extname(f);
       var basename = path.basename(f);
+      var presetName = path.basename(f, ext);
 
       var p;
       // Process yaml or json files
@@ -89,7 +92,7 @@ var getFileProcessor = function(presets) {
           break;
         case '.json':
           p = processJson(f);
-          validator.validate(p);
+          validator.validate(p, presetName);
           presets[p.file] = p;
           break;
       }
