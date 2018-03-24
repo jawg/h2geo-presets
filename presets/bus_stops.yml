@@ -20,7 +20,7 @@ groups:
       default: https://image.freepik.com/free-icon/pharmacy--emergency_318-33252.jpg
       de: osm-icons://29001
       en: carto://advertising/column
-      es: res://bus_stop.svg
+      es: res://bus_stop.png
       fr: osmic://barrier/gate-14
     items:
       - name: public_transport=platform
