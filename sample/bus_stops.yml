@@ -1,0 +1,65 @@
+name:
+  default: Bus stop preset
+  en: Bus stop preset
+  fr: Preset pour arrêt de bus
+version: '1.0'
+author: Léo Frachet
+link: https://github.com/jawg/h2geo-presets
+description:
+  default: The only profile you need to contribute your favourite bus stop amenities.
+  en: The only profile you need to contribute your favourite bus stop amenities.
+  fr: Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux arrêts de bus.
+offlineArea:
+  - [2.305884,48.832803,2.336655,48.844186] # montparnasse
+groups:
+  - name:
+      default: Bus stop group
+      en: Bus stop group
+      fr: Groupe Arrêt de bus
+    icon:
+      default: https://image.freepik.com/free-icon/pharmacy--emergency_318-33252.jpg
+      de: osm-icons://29001
+      en: carto://advertising/column
+      es: res://bus_stop.svg
+      fr: osmic://barrier/gate-14
+    items:
+      - name: public_transport=platform
+        url: 'https://wiki.openstreetmap.org/wiki/Tag:public_transport=platform'
+        label:
+          default: Bus stop
+          en: Bus stop
+          fr: Arrêt de bus
+        description:
+          default: Place where the passengers wait for the bus.
+          en: Place where the passengers wait for the bus.
+          fr: Lieu où les voyageurs attendent le bus.
+        keywords:
+          default:
+            - bus stop
+            - bus pole
+          en:
+            - bus stop
+            - bus pole
+          fr:
+            - Arrêt de bus
+        tags:
+          - key: name
+            type: TEXT
+          - key: public_transport
+            value: platform
+            type: CONSTANT
+          - key: operator
+            type: TEXT
+            description:
+              default: Name of the company that operates the platform. Do not use abbrevations.
+              en: Name of the company that operates the platform. Do not use abbrevations.
+              fr: Accès au parking à vélo
+          - key: bench
+            type: SINGLE_CHOICE
+            values:
+              - 'yes'
+              - 'no'
+            description:
+              default: Is there a bench?
+              en: Is there a bench?
+              fr: Est-ce qu'il y a un banc ?
