@@ -17,6 +17,8 @@ Contributing to OpenStreetMap is not trivial for beginners. Sometimes, you just 
 ## How it works
 
   h2geo-presets parses your .yml or .json presets and automatically outputs the validated presets on the gh-pages branch.
+  
+  For presets using resources (like icons), you can provide them in `resources/nameOfYourPreset/` folder, along your yml/json file.
 
   Need help? take a look at the samples!
 
