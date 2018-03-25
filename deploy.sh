@@ -20,7 +20,10 @@ cd ..
 # Clean out existing contents
 rm -rf out/** || exit 0
 
-# Build
+# Run tests
+./test.sh $1
+
+# Attempt to build presets
 ./build.sh $1
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify

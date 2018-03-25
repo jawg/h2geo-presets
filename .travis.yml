@@ -1,4 +1,9 @@
 language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
 script: bash ./deploy.sh $TRAVIS_BUILD_NUMBER
 env:
   global:
