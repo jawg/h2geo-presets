@@ -3,6 +3,7 @@ name:
   en: Bicycles preset
   fr: Preset Vélos
 version: '0.1'
+schema: '1.0'
 author: Loic Ortola
 link: https://github.com/jawg/h2geo-presets
 description:
@@ -69,7 +70,7 @@ groups:
             required: false
           - key: capacity
             type: NUMBER
-            validation: 
+            validation:
              minValue: 0
              maxValue: 25
           - key: operator

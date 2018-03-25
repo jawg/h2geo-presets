@@ -9,6 +9,8 @@
     "en": "The only profile you need to contribute your favourite bicycle amenities.",
     "fr": "Le seul profil dont vous aurez besoin pour contribuer des données utiles liées aux vélos."
   },
+  "version": "1.0",
+  "schema": "1.0",
   "offlineArea": [
     [
       2.318866,
@@ -29,6 +31,8 @@
       48.844186
     ]
   ],
+  "author": "Loic Ortola",
+  "link": "https://github.com/jawg/h2geo-presets",
   "image": "http://static.directmatin.fr/sites/default/files/velib_frein_arriere.jpg",
   "groups": [
     {

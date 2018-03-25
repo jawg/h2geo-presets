@@ -5,6 +5,7 @@
     "fr": "Preset pour arrêt de bus"
   },
   "version": "1.0",
+  "schema": "1.0",
   "author": "Léo Frachet",
   "link": "https://github.com/jawg/h2geo-presets",
   "description": {
