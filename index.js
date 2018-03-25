@@ -1,5 +1,5 @@
 // Imports
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const yaml = require('js-yaml');
 const rmdir = require('rmdir-recursive').sync;
@@ -15,7 +15,7 @@ const baseDir = 'presets/';
  * @param f the input yaml file
  * @return {"name": {"en": "The Preset Name"}, "description": {"en": "Your preset description"}, "file": "preset_file.json", "image": "image_url"}
  */
-var processYaml = function (f) {
+function processYaml(f) {
   // Convert Yaml to JSON
   var parsed = yaml.safeLoad(fs.readFileSync(baseDir + f));
   var presetName = path.basename(f, path.extname(f));
@@ -27,7 +27,7 @@ var processYaml = function (f) {
     process.exit(1);
   } else {
     console.log("File " + f + " is valid. Will be parsed as preset.");
-    postProcessor.postProcessCleanup(parsed);
+    postProcessor.postProcessCleanup(presetName, parsed);
   }
   fs.writeFileSync(outputDir + filename, JSON.stringify(parsed));
   return {"name": parsed.name, "description": parsed.description, "version": parsed.version, "image": parsed.image, "file": filename};
@@ -38,7 +38,7 @@ var processYaml = function (f) {
  * @param f the input json file
  * @return {"name": {"en": "The Preset Name"}, "description": {"en": "Your preset description"}, "file": "preset_file.json"}
  */
-var processJson = function (f) {
+function processJson(f) {
   var parsed = JSON.parse(fs.readFileSync(baseDir + f));
   var presetName = path.basename(f, path.extname(f));
   var filename = path.basename(f);
@@ -68,8 +68,8 @@ var processJson = function (f) {
  * @param presets the presets object
  * @returns {Function} the function which will process all files
  */
-var getFileProcessor = function(presets) {
-  return function (f) {
+function getFileProcessor(presets) {
+  return (f) => {
 
     try {
       // Only process files
@@ -78,11 +78,11 @@ var getFileProcessor = function(presets) {
         return;
       }
 
-      var ext = path.extname(f);
-      var basename = path.basename(f);
-      var presetName = path.basename(f, ext);
+      const ext = path.extname(f);
+      const basename = path.basename(f);
+      const presetName = path.basename(f, ext);
 
-      var p;
+      let p;
       // Process yaml or json files
       switch (ext) {
         case '.yml':
@@ -105,24 +105,24 @@ var getFileProcessor = function(presets) {
 
 
 
-var exec = function() {
+function exec() {
   // Create output directory
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
 
-  var dir = fs.readdirSync(baseDir);
-  var output = {
+  const dir = fs.readdirSync(baseDir);
+  const output = {
     revision: process.argv[2],
     lastUpdate: new Date().toISOString(),
     presets: {}
   };
 
-  /**
-   * Parse directory
-   */
+  // Parse directory and process each file
   dir.forEach(getFileProcessor(output.presets));
 
+  // Copy all resources to output
+  fs.copySync('resources', outputDir + 'resources');
   fs.writeFileSync(outputDir + 'presets.json', JSON.stringify(output));
 
 };

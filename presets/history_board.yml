@@ -2,6 +2,7 @@ name:
   default: Preset informations historiques
   fr: Preset informations historiques
 version: '0.1'
+schema: "1.0"
 author: nlehuby
 description:
   default: "Pour faire l'inventaire des panneaux historiques et plaques commémoratives"

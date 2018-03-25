@@ -3,6 +3,7 @@ name:
   en: Advertising billboard
   fr: Panneau publicitaire
 version: '0.32'
+schema: "1.0"
 author: PaDe
 link: http://github.com/jawg/h2geo-presets
 description:

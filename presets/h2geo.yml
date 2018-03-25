@@ -8,6 +8,7 @@ description:
   fr: Ce profil contient des données exportées du Wiki OpenStreetMap
   en: This profile contains the crawled data from the OpenStreetMap Wiki by h2geo
 version: 0.5.0-SNAPSHOT
+schema: "1.0"
 lastUpdate: '2016-09-13T22:37:01.716'
 groups:
   - name:

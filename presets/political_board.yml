@@ -1,57 +1,58 @@
---- 
+---
 author: PaDe
-description: 
+schema: "1.0"
+description:
   default: "Pour faire l'inventaire des panneaux électoraux"
   en: "To participate to the inventory of political boards"
   fr: "Pour faire l'inventaire des panneaux électoraux"
-groups: 
-  - 
+groups:
+  -
     icon: "http://wiki.openstreetmap.org/w/images/archive/3/3a/20170503072933%21Political_Board_3.svg"
-    items: 
-      - 
-        description: 
+    items:
+      -
+        description:
           default: "Panneau électoral, pour les candidats aux élections."
           en: "Advertising board for political advertising during electoral campaign."
           fr: "Panneau électoral, pour les candidats aux élections."
         icon: "https://wiki.openstreetmap.org/wiki/File:Political_Board_3.svg"
-        keywords: 
-          default: 
+        keywords:
+          default:
             - Publicité
             - "Panneau électoral"
-          en: 
+          en:
             - Advertising
             - "Political board"
-          fr: 
+          fr:
             - Publicité
             - "Panneau électoral"
-        label: 
+        label:
           default: "Panneau électoral"
           en: "Advertising board"
           fr: "Panneau électoral"
         name: advertising=board
         query: "node['advertising'='board']['message'='political']({{bbox}});out meta;out meta center;"
-        tags: 
-          - 
+        tags:
+          -
             key: advertising
             type: CONSTANT
             value: board
-          - 
+          -
             key: permanent
             type: CONSTANT
             value: no
-          - 
+          -
             key: message
             type: CONSTANT
             value: political
         url: "https://wiki.openstreetmap.org/wiki/FR:Tag:advertising%3Dboard"
-    name: 
+    name:
       default: Publicité
       en: Advertising
       fr: Publicité
     url: "https://wiki.openstreetmap.org/wiki/Category:Advertising"
 image: "https://upload.wikimedia.org/wikipedia/commons/6/64/PanneauElectoral_20170423.jpg"
 link: "https://github.com/jawg/h2geo-presets"
-name: 
+name:
   default: "Panneaux électoraux"
   en: "Political boards"
   fr: "Panneaux électoraux"

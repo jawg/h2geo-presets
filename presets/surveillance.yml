@@ -2,6 +2,7 @@ name:
   default: Surveillance preset
   en: Surveillance preset
 version: '0.1'
+schema: "1.0"
 author: kaleng
 description:
   default: Mapping surveillance cameras

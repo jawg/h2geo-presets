@@ -4,6 +4,7 @@ name:
   fr: Thème toilettes
 version: '0.1'
 author: PanierAvide
+schema: "1.0"
 description:
   default: Mapping public toilets
   en: Mapping public toilets

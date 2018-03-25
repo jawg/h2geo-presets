@@ -3,6 +3,7 @@ name:
   en: "Advertising indicator board"
   fr: "Préenseigne publicitaire"
 version: '0.58'
+schema: "1.0"
 author: PaDe
 link: http://github.com/jawg/h2geo-presets
 description:
