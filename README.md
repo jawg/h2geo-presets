@@ -3,7 +3,7 @@ A list of community presets to detail specific data types for mapping parties
 
 Current version: 1.0
 
-<img src="https://travis-ci.org/jawg/h2geo-presets.svg"/>
+<img src="https://travis-ci.org/jawg/h2geo-presets.svg?branch=master"/>
 
 # Documentation
 You can find the full spec and documentation here:  
