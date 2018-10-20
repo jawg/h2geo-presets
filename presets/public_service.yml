@@ -1,0 +1,150 @@
+name:
+  default: Public service offices preset
+  en: Public service offices preset
+  fr: Thème services publics
+version: '0.1'
+author: nlehuby
+schema: "1.0"
+description:
+  default: Mapping fire stations, police offices, etc
+  en: Mapping fire stations, police offices, etc
+  fr: Cartographie des commissariats, casernes de pompier, etc
+image: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Renault_Master_III_police_nationale%2C_Paris.JPG'
+groups:
+  - name:
+      default: Public service offices
+      en: Public service offices
+      fr: "Services Publics d'urgence"
+    url: 'https://wiki.openstreetmap.org/wiki/FR:Tag:amenity%3Dpolice'
+    items:
+      - name: amenity=police
+        icon: 'https://wiki.openstreetmap.org/w/images/5/59/Police-16.svg'
+        url: 'https://wiki.openstreetmap.org/wiki/FR:Tag:amenity%3Dpolice'
+        query: "(node[amenity=police]({{bbox}});way[amenity=police]({{bbox}}););out center;"
+        label:
+          default: Police station
+          fr: Commissariat, Gendarmerie
+        description:
+          default: a police station
+          fr: Un commissariat de police ou une gendarmerie
+        keywords:
+          default:
+            - Police
+            - Gendarmerie
+          fr:
+            - Police
+            - Gendarmerie
+        tags:
+          - key: amenity
+            value: police
+            type: CONSTANT
+            show: false
+          - key: phone
+            type: NUMBER
+          - key: fax
+            type: NUMBER
+          - key: opening_hours
+            type: OPENING_HOURS
+          - key: operator
+            type: SINGLE_CHOICE
+            values:
+              - 'Police nationale':
+                  default: Police nationale
+                  fr: Police nationale
+              - 'Police municipale':
+                  default: Police municipale
+                  fr: Police municipale
+              - 'Gendarmerie nationale':
+                  default: Gendarmerie nationale
+                  fr: Gendarmerie nationale
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            values:
+              - 'yes':
+                  default: 'yes'
+              - 'no':
+                  default: 'no'
+              - limited:
+                  default: limited
+      - name: amenity=fire_station
+        url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=fire_station'
+        query: "(node[amenity=fire_station]({{bbox}});way[amenity=fire_station]({{bbox}}););out center;"
+        label:
+          default: Fire station
+          fr: Caserne de pompiers
+        description:
+          default: A fire station
+          fr: Caserne de pompier
+        keywords:
+          default:
+            - Fire
+            - Fire station
+        tags:
+          - key: amenity
+            value: fire_station
+            type: CONSTANT
+            show: false
+          - key: phone
+            type: NUMBER
+          - key: fax
+            type: NUMBER
+          - key: opening_hours
+            type: OPENING_HOURS
+          - key: operator
+            type: SINGLE_CHOICE
+            values:
+              - SDIS:
+                  default: Services départementaux d'incendie et de secours
+                  fr: Services départementaux d'incendie et de secours
+              - BSPP:
+                  default: Brigade des sapeurs-pompiers de Paris
+                  fr: Brigade des sapeurs-pompiers de Paris
+              - BMPM:
+                  default: Bataillon des marins-pompiers de Marseille
+                  fr: Bataillon des marins-pompiers de Marseille
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            values:
+              - 'yes':
+                  default: 'yes'
+              - 'no':
+                  default: 'no'
+              - limited:
+                  default: limited
+      - name: amenity=hospital
+        url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=hospital'
+        label:
+          default: hospital
+          fr: hôpital
+        description:
+          default: A hospital
+          fr: Hôpital
+        keywords:
+          fr:
+            - hôpital
+            - hosto
+        tags:
+          - key: amenity
+            value: hospital
+            type: CONSTANT
+            show: false
+          - key: emergency
+            type: CONSTANT
+            value: yes
+          - key: name
+            type: TEXT
+          - key: phone
+            type: NUMBER
+          - key: website
+            type: TEXT
+          - key: opening_hours
+            type: OPENING_HOURS
+          - key: wheelchair
+            type: SINGLE_CHOICE
+            values:
+              - 'yes':
+                  default: 'yes'
+              - 'no':
+                  default: 'no'
+              - limited:
+                  default: limited
