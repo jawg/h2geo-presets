@@ -269,7 +269,7 @@ groups:
           sv: Laddstolpe
           sr-ec: Акумулаторска станица
           en: Charging station
-          fr: station de recharge électrique
+          fr: borne de recharge électrique
           es: Estación de carga
           zh: 電動車充電站
           ar: محطة شحن
@@ -289,7 +289,7 @@ groups:
           ru: Зарядная станция
           ja: 充電スタンド
           en: A station that supplies energy to electrical vehicles.
-          fr: Une station de recharge de véhicule électrique.
+          fr: Une borne de recharge de véhicule électrique.
           default: A station that supplies energy to electrical vehicles.
         keywords:
           de:
@@ -327,13 +327,10 @@ groups:
             value: charging_station
             type: CONSTANT
             show: false
-          - key: amperage
-            type: TEXT
-            values:
-              - '32':
-                  default: '32'
-              - '16':
-                  default: '16'
+          - key: motorcar
+            value: yes
+            type: CONSTANT
+            show: false
           - key: capacity
             type: TEXT
             values:
@@ -367,13 +364,19 @@ groups:
             values:
               - 24/7:
                   default: 24/7
+          - key: network
+            type: TEXT
           - key: operator
             type: TEXT
-            values:
-              - PGL LP:
-                  default: PGL LP
           - key: ref
             type: TEXT
+          - key: amperage
+            type: TEXT
+            values:
+              - '32':
+                  default: '32'
+              - '16':
+                  default: '16'
           - key: voltage
             type: TEXT
             values:

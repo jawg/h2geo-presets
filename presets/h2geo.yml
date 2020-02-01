@@ -2750,7 +2750,7 @@ groups:
           sv: Laddstolpe
           sr-ec: Акумулаторска станица
           en: Charging station
-          fr: station de recharge
+          fr: borne de recharge
           es: Estación de carga
           zh: 電動車充電站
           ar: محطة شحن
@@ -2807,13 +2807,6 @@ groups:
             value: charging_station
             type: CONSTANT
             show: false
-          - key: amperage
-            type: TEXT
-            values:
-              - '32':
-                  default: '32'
-              - '16':
-                  default: '16'
           - key: capacity
             type: TEXT
             values:
@@ -2847,30 +2840,26 @@ groups:
             values:
               - 24/7:
                   default: 24/7
+          - key: motorcar
+            type: SINGLE_CHOICE
+            values:
+              - 'no':
+                  default: 'no'
+              - 'yes':
+                  default: 'yes'
+          - key: bicycle
+            type: SINGLE_CHOICE
+            values:
+              - 'no':
+                  default: 'no'
+              - 'yes':
+                  default: 'yes'
+          - key: network
+            type: TEXT
           - key: operator
             type: TEXT
-            values:
-              - PGL LP:
-                  default: PGL LP
           - key: ref
             type: TEXT
-          - key: voltage
-            type: TEXT
-            values:
-              - '15000':
-                  default: '15000'
-              - '25000':
-                  default: '25000'
-              - '3000':
-                  default: '3000'
-              - '1500':
-                  default: '1500'
-              - '110000':
-                  default: '110000'
-              - '750':
-                  default: '750'
-              - '600':
-                  default: '600'
       - name: amenity=cinema
         url: 'https://wiki.openstreetmap.org/wiki/Tag:amenity=cinema'
         label:
